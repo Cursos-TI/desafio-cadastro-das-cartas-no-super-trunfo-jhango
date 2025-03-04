@@ -11,7 +11,8 @@ int main() {
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     char estado, estado2, codigo[04], codigo2[04], nome[20], nome2[20];
     int populacao, populacao2, pontosturisticos, pontosturisticos2;
-    float area, area2, pib, pib2, densidadep, densidadep2, pibpc, pibpc2; // densidadep = densidade populacional.  pibpc = pib per capita
+    float area, area2, pib, pib2, densidadep, densidadep2, pibpc, pibpc2, inversodensidade, inversodensidade2, poder, poder2; // densidadep = densidade populacional.  pibpc = pib per capita
+    
     
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -43,6 +44,8 @@ int main() {
     // Calculo do pip per capita e densidade populacional
     pibpc = pib / populacao;
     densidadep = populacao / area;
+    inversodensidade = 1 / densidadep;
+    poder = populacao + pontosturisticos + area + pib + inversodensidade + pibpc;
     
     // Carta 2
     printf("Digite o Estado da carta: com letra de A a H: \n");
@@ -70,6 +73,8 @@ int main() {
     // Calculo do pip per capita e densidade populacional
     pibpc2 = pib2 / populacao2;
     densidadep2 = populacao2 / area2;
+    inversodensidade2 = 1 / densidadep2;
+    poder2 = populacao2 + pontosturisticos2 + area2 + pib2 + inversodensidade2 + pibpc2;
 
     
     // Exibição dos Dados das Cartas:
@@ -100,5 +105,16 @@ int main() {
      printf("DENSIDADE POPULACIONAL: %.2f\n", densidadep2);
      printf("PIB PER CAPTA: %.2f\n", pibpc2);
     
+     //Duelo das cartas
+     printf("DUELO DAS CARTAS: resultado 1 indica verdadeiro, resultado 2 indica falso.\n");
+     printf("População da Carta 1 é maior? %d\n", populacao > populacao2);
+     printf("PIB da Carta 1 é maior? %d\n", pib > pib2);
+     printf("Área da Carta 1 é maior? %d\n", area > area2);
+     printf("Pontos turísticos da Carta 1 é maior? %d\n", pontosturisticos > pontosturisticos2);
+     printf("Densidade populacional da Carta 1 é menor? %d\n", densidadep < densidadep2);
+     printf("PIB PER CAPTA da Carta 1 é maior? %d\n", pibpc > pibpc2);
+     printf("Super Poder da Carta 1 é maior? %d\n", poder > poder2);
+
+
     return 0;
 }
