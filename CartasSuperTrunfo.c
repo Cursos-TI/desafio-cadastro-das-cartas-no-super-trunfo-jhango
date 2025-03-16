@@ -10,7 +10,7 @@ int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     char estado, estado2, codigo[04], codigo2[04], nome[20], nome2[20];
-    int populacao, populacao2, pontosturisticos, pontosturisticos2;
+    int populacao, populacao2, pontosturisticos, pontosturisticos2, opcao; // Variavel opcao serve para selecionar opcao de duelo
     float area, area2, pib, pib2, densidadep, densidadep2, pibpc, pibpc2, inversodensidade, inversodensidade2, poder, poder2; // densidadep = densidade populacional.  pibpc = pib per capita
     
     
@@ -116,86 +116,107 @@ int main() {
     printf("Super Poder da Carta 1 é maior? %d\n", poder > poder2);
     */
     
-    //Duelo das cartas aprimorado
+    //Duelo das cartas aprimorado com escolha de atributo a ser comparado
+
     printf("=== DUELO DAS CARTAS ===\n");
-    printf("=== Categoria POPULAÇÃO: ===\n");
-    printf("%s: %d habitantes\n", nome, populacao);
-    printf("%s: %d habitantes\n", nome2, populacao2);
-    if (populacao > populacao2) {
-        printf("VENCEDOR: %s com %d \n", nome, populacao);
-    } else if (populacao < populacao2) {
-        printf("VENCEDOR: %s com %d \n", nome2, populacao2);
-    } else {
-        printf("EMPATE");
+    printf("Escolha o atributo das cartas a ser comparado! \n");
+    printf("Digite 1 para comparar POPULAÇÃO \n");
+    printf("Digite 2 para comparar PIB \n");
+    printf("Digite 3 para comparar ÁREA \n");
+    printf("Digite 4 para comparar PONTOS TURÍSTICOS \n");
+    printf("Digite 5 para comparar DENSIDADE POPULACIONAL \n");
+    printf("Digite 6 para comparar PIB PER CAPTA \n");
+    printf("Digite 7 para comparar SUPER PODER \n");
+    scanf("%d", &opcao);
+
+    switch (opcao)
+    {
+    case 1:
+        printf("=== Categoria POPULAÇÃO: ===\n");
+        printf("%s: %d habitantes\n", nome, populacao);
+        printf("%s: %d habitantes\n", nome2, populacao2);
+        if (populacao > populacao2) {
+            printf("VENCEDOR: %s com %d \n", nome, populacao);
+        } else if (populacao < populacao2) {
+            printf("VENCEDOR: %s com %d \n", nome2, populacao2);
+        } else {
+            printf("EMPATE");
+        }
+    break;
+    case 2:
+        printf("=== Categoria PIB: ===\n");
+        printf("%s: %.2f \n", nome, pib);
+        printf("%s: %.2f \n", nome2, pib2);
+        if (pib > pib2) {
+            printf("VENCEDOR: %s com %.2f \n", nome, pib);
+        } else if (pib < pib2) {
+            printf("VENCEDOR: %s com %.2f \n", nome2, pib2);
+        } else {
+            printf("EMPATE");
+        }
+    break;
+    case 3:
+        printf("=== Categoria ÁREA: ===\n");
+        printf("%s: %.2f Kilometros quadrados\n", nome, area);
+        printf("%s: %.2f Kilometros quadrados\n", nome2, area2);
+        if (area > area2) {
+            printf("VENCEDOR: %s com %.2f \n", nome, area);
+        } else if (area < area2) {
+            printf("VENCEDOR: %s com %.2f \n", nome2, area2);
+        } else {
+            printf("EMPATE");
+        }
+    break;
+    case 4:
+        printf("=== Categoria PONTOS TURÍSTICOS: ===\n");
+        printf("%s: %d Pontos turísticos\n", nome, pontosturisticos);
+        printf("%s: %d pontos turísticos\n", nome2, pontosturisticos2);
+        if (pontosturisticos > pontosturisticos2) {
+            printf("VENCEDOR: %s com %d \n", nome, pontosturisticos);
+        } else if (pontosturisticos < pontosturisticos2) {
+            printf("VENCEDOR: %s com %d \n", nome2, pontosturisticos2);
+        } else {
+            printf("EMPATE");
+        }
+    break;
+    case 5:
+        printf("=== Categoria DENSIDADE POPULACIONAL: ===\n");
+        printf("%s: %.2f habitantes por metro quadrado\n", nome, densidadep);
+        printf("%s: %.2f habitantes por metro quadrado\n", nome2, densidadep2);
+        if (densidadep < densidadep2) {
+            printf("VENCEDOR: %s com %.2f \n", nome, densidadep);
+        } else if (densidadep > densidadep2) {
+            printf("VENCEDOR: %s com %.2f \n", nome2, densidadep2);
+        } else {
+            printf("EMPATE");
+        }           
+    break;
+    case 6:
+        printf("=== Categoria PIB PER CAPTA: ===\n");
+        printf("%s: %.2f pib per capta\n", nome, pibpc);
+        printf("%s: %.2f pib per capta\n", nome2, pibpc2);
+        if (pibpc > pibpc2) {
+            printf("VENCEDOR: %s com %.2f \n", nome, pibpc);
+        } else if (pibpc < pibpc2) {
+            printf("VENCEDOR: %s com %.2f \n", nome2, pibpc2);
+        } else {
+            printf("EMPATE");
+        }
+    break;
+    case 7:
+        printf("=== Categoria SUPER PODER: ===\n");
+        printf("%s: %.2f super poder\n", nome, poder);
+        printf("%s: %.2f super poder\n", nome2, poder2);
+        if (poder > poder2) {
+            printf("VENCEDOR: %s com %.2f \n", nome, poder);
+        } else if (poder < poder2) {
+            printf("VENCEDOR: %s com %.2f \n", nome2, poder2);
+        } else {
+            printf("EMPATE");
+        }
+    break;
+    default:
+        printf("OPÇÃO INVÁLIDA");
     }
-
-    printf("=== Categoria PIB: ===\n");
-    printf("%s: %.2f \n", nome, pib);
-    printf("%s: %.2f \n", nome2, pib2);
-    if (pib > pib2) {
-        printf("VENCEDOR: %s com %.2f \n", nome, pib);
-    } else if (pib < pib2) {
-        printf("VENCEDOR: %s com %.2f \n", nome2, pib2);
-    } else {
-        printf("EMPATE");
-    }
-
-    printf("=== Categoria ÁREA: ===\n");
-    printf("%s: %.2f Kilometros quadrados\n", nome, area);
-    printf("%s: %.2f Kilometros quadrados\n", nome2, area2);
-    if (area > area2) {
-        printf("VENCEDOR: %s com %.2f \n", nome, area);
-    } else if (area < area2) {
-        printf("VENCEDOR: %s com %.2f \n", nome2, area2);
-    } else {
-        printf("EMPATE");
-    }
-
-    printf("=== Categoria PONTOS TURÍSTICOS: ===\n");
-    printf("%s: %d Pontos turísticos\n", nome, pontosturisticos);
-    printf("%s: %d pontos turísticos\n", nome2, pontosturisticos2);
-    if (pontosturisticos > pontosturisticos2) {
-        printf("VENCEDOR: %s com %d \n", nome, pontosturisticos);
-    } else if (pontosturisticos < pontosturisticos2) {
-        printf("VENCEDOR: %s com %d \n", nome2, pontosturisticos2);
-    } else {
-        printf("EMPATE");
-    }
-
-    printf("=== Categoria DENSIDADE POPULACIONAL: ===\n");
-    printf("%s: %.2f habitantes por metro quadrado\n", nome, densidadep);
-    printf("%s: %.2f habitantes por metro quadrado\n", nome2, densidadep2);
-    if (densidadep < densidadep2) {
-        printf("VENCEDOR: %s com %.2f \n", nome, densidadep);
-    } else if (densidadep > densidadep2) {
-        printf("VENCEDOR: %s com %.2f \n", nome2, densidadep2);
-    } else {
-        printf("EMPATE");
-    }
-
-    printf("=== Categoria PIB PER CAPTA: ===\n");
-    printf("%s: %.2f pib per capta\n", nome, pibpc);
-    printf("%s: %.2f pib per capta\n", nome2, pibpc2);
-    if (pibpc > pibpc2) {
-        printf("VENCEDOR: %s com %.2f \n", nome, pibpc);
-    } else if (pibpc < pibpc2) {
-        printf("VENCEDOR: %s com %.2f \n", nome2, pibpc2);
-    } else {
-        printf("EMPATE");
-    }
-
-    printf("=== Categoria SUPER PODER: ===\n");
-    printf("%s: %.2f super poder\n", nome, poder);
-    printf("%s: %.2f super poder\n", nome2, poder2);
-    if (poder > poder2) {
-        printf("VENCEDOR: %s com %.2f \n", nome, poder);
-    } else if (poder < poder2) {
-        printf("VENCEDOR: %s com %.2f \n", nome2, poder2);
-    } else {
-        printf("EMPATE");
-    }
-
-
-
     return 0;
 }
