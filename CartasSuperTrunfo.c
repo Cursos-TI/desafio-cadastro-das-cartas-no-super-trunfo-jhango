@@ -10,7 +10,7 @@ int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     char estado, estado2, codigo[04], codigo2[04], nome[20], nome2[20];
-    int populacao, populacao2, pontosturisticos, pontosturisticos2, opcao; // Variavel opcao serve para selecionar opcao de duelo
+    int populacao, populacao2, pontosturisticos, pontosturisticos2, opcao, opcao2, resultado1, resultado2; // Variavel opcao serve para selecionar opcao de duelo
     float area, area2, pib, pib2, densidadep, densidadep2, pibpc, pibpc2, inversodensidade, inversodensidade2, poder, poder2; // densidadep = densidade populacional.  pibpc = pib per capita
     
     
@@ -129,6 +129,8 @@ int main() {
     printf("Digite 7 para comparar SUPER PODER \n");
     scanf("%d", &opcao);
 
+    // Comparação original com IF será substituida por operador ternario que na minha opinião não é o indicado.
+    /*
     switch (opcao)
     {
     case 1:
@@ -218,5 +220,134 @@ int main() {
     default:
         printf("OPÇÃO INVÁLIDA");
     }
+    */
+
+    //Nova versão de comparação de atributos utilizando operador ternário (exigência do desafio Mestre)
+    //Duelo do primeiro atributo
+    switch (opcao)
+    {
+    case 1:
+        printf("=== Categoria POPULAÇÃO: ===\n");
+        printf("%s: %d habitantes\n", nome, populacao);
+        printf("%s: %d habitantes\n", nome2, populacao2);
+        resultado1 = populacao > populacao2 ? 1 : 0;
+    break;
+    case 2:
+        printf("=== Categoria PIB: ===\n");
+        printf("%s: %.2f \n", nome, pib);
+        printf("%s: %.2f \n", nome2, pib2);
+        resultado1 = pib > pib2 ? 1 : 0;
+    break;
+    case 3:
+        printf("=== Categoria ÁREA: ===\n");
+        printf("%s: %.2f Kilometros quadrados\n", nome, area);
+        printf("%s: %.2f Kilometros quadrados\n", nome2, area2);
+        resultado1 = area > area2 ? 1 : 0;
+    break;
+    case 4:
+        printf("=== Categoria PONTOS TURÍSTICOS: ===\n");
+        printf("%s: %d Pontos turísticos\n", nome, pontosturisticos);
+        printf("%s: %d pontos turísticos\n", nome2, pontosturisticos2);
+        resultado1 = pontosturisticos > pontosturisticos2 ? 1 : 0;
+    break;
+    case 5:
+        printf("=== Categoria DENSIDADE POPULACIONAL: ===\n");
+        printf("%s: %.2f habitantes por metro quadrado\n", nome, densidadep);
+        printf("%s: %.2f habitantes por metro quadrado\n", nome2, densidadep2);
+        resultado1 = densidadep < densidadep2 ? 1 : 0;
+    break;
+    case 6:
+        printf("=== Categoria PIB PER CAPTA: ===\n");
+        printf("%s: %.2f pib per capta\n", nome, pibpc);
+        printf("%s: %.2f pib per capta\n", nome2, pibpc2);
+        resultado1 = pibpc > pibpc2 ? 1 : 0;
+    break;
+    case 7:
+        printf("=== Categoria SUPER PODER: ===\n");
+        printf("%s: %.2f super poder\n", nome, poder);
+        printf("%s: %.2f super poder\n", nome2, poder2);
+        resultado1 = poder > poder2 ? 1 : 0;
+    break;
+    default:
+        printf("OPÇÃO INVÁLIDA");
+    }
+
+    //Duelo do segundo atributo
+    printf("=== DUELO DAS CARTAS ===\n");
+    printf("Escolha o segundo atributo das cartas a ser comparado! \n");
+    printf("Digite 1 para comparar POPULAÇÃO \n");
+    printf("Digite 2 para comparar PIB \n");
+    printf("Digite 3 para comparar ÁREA \n");
+    printf("Digite 4 para comparar PONTOS TURÍSTICOS \n");
+    printf("Digite 5 para comparar DENSIDADE POPULACIONAL \n");
+    printf("Digite 6 para comparar PIB PER CAPTA \n");
+    printf("Digite 7 para comparar SUPER PODER \n");
+    scanf("%d", &opcao2);
+
+    if (opcao == opcao2) {
+        printf("Opção de atributo repetida! Recomece o jogo!");
+    } else{
+        switch (opcao2)
+        {
+        case 1:
+            printf("=== Categoria POPULAÇÃO: ===\n");
+            printf("%s: %d habitantes\n", nome, populacao);
+            printf("%s: %d habitantes\n", nome2, populacao2);
+            resultado2 = populacao > populacao2 ? 1 : 0;
+        break;
+        case 2:
+            printf("=== Categoria PIB: ===\n");
+            printf("%s: %.2f \n", nome, pib);
+            printf("%s: %.2f \n", nome2, pib2);
+            resultado2 = pib > pib2 ? 1 : 0;
+        break;
+        case 3:
+            printf("=== Categoria ÁREA: ===\n");
+            printf("%s: %.2f Kilometros quadrados\n", nome, area);
+            printf("%s: %.2f Kilometros quadrados\n", nome2, area2);
+            resultado2 = area > area2 ? 1 : 0;
+        break;
+        case 4:
+            printf("=== Categoria PONTOS TURÍSTICOS: ===\n");
+            printf("%s: %d Pontos turísticos\n", nome, pontosturisticos);
+            printf("%s: %d pontos turísticos\n", nome2, pontosturisticos2);
+            resultado2 = pontosturisticos > pontosturisticos2 ? 1 : 0;
+        break;
+        case 5:
+            printf("=== Categoria DENSIDADE POPULACIONAL: ===\n");
+            printf("%s: %.2f habitantes por metro quadrado\n", nome, densidadep);
+            printf("%s: %.2f habitantes por metro quadrado\n", nome2, densidadep2);
+            resultado2 = densidadep < densidadep2 ? 1 : 0;
+        break;
+        case 6:
+            printf("=== Categoria PIB PER CAPTA: ===\n");
+            printf("%s: %.2f pib per capta\n", nome, pibpc);
+            printf("%s: %.2f pib per capta\n", nome2, pibpc2);
+            resultado2 = pibpc > pibpc2 ? 1 : 0;
+        break;
+        case 7:
+            printf("=== Categoria SUPER PODER: ===\n");
+            printf("%s: %.2f super poder\n", nome, poder);
+            printf("%s: %.2f super poder\n", nome2, poder2);
+            resultado2 = poder > poder2 ? 1 : 0;
+        break;
+        default:
+            printf("OPÇÃO INVÁLIDA");
+        }
+    }
+
+    // Comparação dos resultados
+    if (resultado1 && resultado2){
+        printf("Parabéns, você venceu os dois duelos de atributo e venceu o jogo!\n");
+    } else if (resultado1 != resultado2){
+        printf("Cada carta venceu em um duelo e houve um empate!\n");
+    } else {
+        printf("Infelizmente você perdeu em ambos os duelos e foi derrotado!\n");
+    }
+
+    //Despedida do jogo
+    printf("@@@@ Obrigado por jogar SUPER TRUNFO em C @@@@");
+
     return 0;
+    
 }
